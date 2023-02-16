@@ -11,3 +11,12 @@ export const PlanetSchema = new Schema({
 
 
 }, { timestamps: true, toJSON: { virtuals: true } })
+
+PlanetSchema.virtual('galaxy', {
+  ref: 'Galaxy',
+  justOne: true,
+  localField: 'galaxyId',
+  foreignField: '_id'
+
+
+})
