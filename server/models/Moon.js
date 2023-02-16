@@ -8,3 +8,10 @@ export const MoonSchema = new Schema({
   planetid: { type: ObjectId, ref: 'planet', required: true }
 
 })
+
+MoonSchema.virtual('planet', {
+  ref: 'Planet',
+  justOne: true,
+  localField: 'planetId',
+  foreignField: '_id'
+})
